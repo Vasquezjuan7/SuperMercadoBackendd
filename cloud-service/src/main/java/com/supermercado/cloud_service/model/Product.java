@@ -7,12 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Product {
     @Id
     private String id;
-    private String name;  // Antes: nombre
-    private String aisle; // Antes: pasillo
+    private String name;
+    private String aisle;
 
     public Product() {}
 
-    // Getters y Setters actualizados
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
