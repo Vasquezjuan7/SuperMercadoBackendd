@@ -9,7 +9,7 @@ import com.supermercado.cloud_service.service.GetAllProductsService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET})
+@CrossOrigin(origins = "*")
 public class GetAllProductsController {
 
     private final GetAllProductsService getAllProductsService;

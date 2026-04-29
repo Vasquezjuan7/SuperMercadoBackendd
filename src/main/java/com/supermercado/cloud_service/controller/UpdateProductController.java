@@ -8,7 +8,7 @@ import com.supermercado.cloud_service.service.UpdateProductService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", methods = {RequestMethod.PUT})
+@CrossOrigin(origins = "*")
 public class UpdateProductController {
 
     private final UpdateProductService updateProductService;

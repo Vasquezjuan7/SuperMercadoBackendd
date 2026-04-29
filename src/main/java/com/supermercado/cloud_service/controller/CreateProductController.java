@@ -9,7 +9,7 @@ import com.supermercado.cloud_service.service.SaveProductService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", methods = {RequestMethod.POST})
+@CrossOrigin(origins = "*")
 public class CreateProductController {
 
     private final SaveProductService saveProductService;

@@ -7,7 +7,7 @@ import com.supermercado.cloud_service.service.DeleteProductService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", methods = {RequestMethod.DELETE})
+@CrossOrigin(origins = "*")
 public class DeleteProductController {
 
     private final DeleteProductService deleteProductService;

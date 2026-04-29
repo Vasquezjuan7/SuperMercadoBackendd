@@ -8,7 +8,7 @@ import com.supermercado.cloud_service.service.GetProductByIdService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET})
+@CrossOrigin(origins = "*")
 public class GetProductByIdController {
 
     private final GetProductByIdService getProductByIdService;
