@@ -1,7 +1,7 @@
 package com.supermercado.cloud_service.controller;
 
 import com.supermercado.cloud_service.model.Product;
-import com.supermercado.cloud_service.service.ProductService;
+import com.supermercado.cloud_service.service.StockManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 public class StockController {
 
-    private final ProductService productService;
+    private final StockManagementService stockManagementService;
 
     @Autowired
-    public StockController(ProductService productService) {
-        this.productService = productService;
+    public StockController(StockManagementService stockManagementService) {
+        this.stockManagementService = stockManagementService;
     }
 
     @PatchMapping("/{id}/stock")
     public Product adjustStock(@PathVariable String id, @RequestParam String action) {
-        return productService.adjustStock(id, action);
+        return stockManagementService.adjustStock(id, action);
     }
 }

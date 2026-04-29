@@ -4,23 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.supermercado.cloud_service.model.Product;
-import com.supermercado.cloud_service.service.ProductService;
+import com.supermercado.cloud_service.service.GetProductByIdService;
 
 @RestController
 @RequestMapping("/api/products")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
 public class GetProductByIdController {
 
-    private final ProductService productService;
+    private final GetProductByIdService getProductByIdService;
 
     @Autowired
-    public GetProductByIdController(ProductService productService) {
-        this.productService = productService;
+    public GetProductByIdController(GetProductByIdService getProductByIdService) {
+        this.getProductByIdService = getProductByIdService;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable String id) {
-        return productService.getProductById(id)
+        return getProductByIdService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

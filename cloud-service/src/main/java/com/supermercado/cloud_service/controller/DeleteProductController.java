@@ -3,23 +3,23 @@ package com.supermercado.cloud_service.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.supermercado.cloud_service.service.ProductService;
+import com.supermercado.cloud_service.service.DeleteProductService;
 
 @RestController
 @RequestMapping("/api/products")
 @CrossOrigin(origins = "*", methods = {RequestMethod.DELETE})
 public class DeleteProductController {
 
-    private final ProductService productService;
+    private final DeleteProductService deleteProductService;
 
     @Autowired
-    public DeleteProductController(ProductService productService) {
-        this.productService = productService;
+    public DeleteProductController(DeleteProductService deleteProductService) {
+        this.deleteProductService = deleteProductService;
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
-        productService.deleteProduct(id);
+        deleteProductService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
