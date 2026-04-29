@@ -27,4 +27,11 @@ public class StockManagementService {
             return productRepository.save(product);
         }).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
     }
+
+    public Product updateStock(String id, int quantity) {
+        return productRepository.findById(id).map(product -> {
+            product.setQuantity(quantity);
+            return productRepository.save(product);
+        }).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    }
 }
