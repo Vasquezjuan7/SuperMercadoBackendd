@@ -21,6 +21,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<Product> getProductsByAisle(String aisle) {
+        return productRepository.findByAisle(aisle);
+    }
+
     public Product saveProduct(Product product) {
         try {
             return productRepository.save(product);

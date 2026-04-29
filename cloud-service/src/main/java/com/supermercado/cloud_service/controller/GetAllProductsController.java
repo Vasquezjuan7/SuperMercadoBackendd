@@ -20,7 +20,10 @@ public class GetAllProductsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false) String aisle) {
+        if (aisle != null && !aisle.isEmpty()) {
+            return ResponseEntity.ok(productService.getProductsByAisle(aisle));
+        }
         return ResponseEntity.ok(productService.getAllProducts());
     }
 }
