@@ -48,8 +48,22 @@ public class ProductService {
                 .map(product -> {
                     product.setName(updatedProduct.getName());
                     product.setAisle(updatedProduct.getAisle());
+                    product.setQuantity(updatedProduct.getQuantity());
                     return productRepository.save(product);
                 })
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    }
+
+    public Product adjustStock(String id, String action) {
+        return productRepository.findById(id).map(product -> {
+            if ("IN".equalsIgnoreCase(action)) {
+                product.setQuantity(product.getQuantity() + 1);
+            } else if ("OUT".equalsIgnoreCase(action)) {
+                if (product.getQuantity() > 0) {
+                    product.setQuantity(product.getQuantity() - 1);
+                }
+            }
+            return productRepository.save(product);
+        }).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
     }
 }

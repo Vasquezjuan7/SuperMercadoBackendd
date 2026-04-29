@@ -9,6 +9,7 @@ public class Product {
     private String id;
     private String name;
     private String aisle;
+    private int quantity = 10;
 
     public Product() {}
 
@@ -20,4 +21,7 @@ public class Product {
 
     public String getAisle() { return aisle; }
     public void setAisle(String aisle) { this.aisle = aisle; }
+
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 }
