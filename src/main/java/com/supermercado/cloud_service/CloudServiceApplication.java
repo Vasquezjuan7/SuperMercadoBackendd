@@ -3,7 +3,7 @@ package com.supermercado.cloud_service;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.supermercado.cloud_service")
 public class CloudServiceApplication {
 
 	public static void main(String[] args) {
