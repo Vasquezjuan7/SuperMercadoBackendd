@@ -20,6 +20,7 @@ public class DataSeeder implements CommandLineRunner {
             admin.setUsername("Juan");
             admin.setPassword("Juan2026");
             admin.setRole("admin");
+            admin.setSupermercado("Sede Principal");
             userRepository.save(admin);
             System.out.println("Usuario administrador por defecto creado.");
         }

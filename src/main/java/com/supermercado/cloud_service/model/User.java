@@ -12,6 +12,7 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private String supermercado;
     private LocalDateTime createdAt;
 
     public User() {
@@ -32,6 +33,9 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getSupermercado() { return supermercado; }
+    public void setSupermercado(String supermercado) { this.supermercado = supermercado; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
