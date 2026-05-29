@@ -1,9 +1,8 @@
 package com.supermercado.cloud_service.controller;
 
 import com.supermercado.cloud_service.model.SessionLog;
-import com.supermercado.cloud_service.repository.SessionLogRepository;
+import com.supermercado.cloud_service.service.SessionLogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,15 +13,15 @@ import java.util.List;
 public class SessionLogController {
 
     @Autowired
-    private SessionLogRepository repository;
+    private SessionLogService sessionLogService;
 
     @GetMapping
     public List<SessionLog> getAllSessions() {
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "sessionId"));
+        return sessionLogService.getAllSessions();
     }
 
     @PostMapping
     public SessionLog createSession(@RequestBody SessionLog session) {
-        return repository.save(session);
+        return sessionLogService.createSession(session);
     }
 }
